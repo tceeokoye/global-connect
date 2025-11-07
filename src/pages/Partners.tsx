@@ -40,14 +40,13 @@ const Partners = () => {
       <Navigation />
 
       <AnimatedHero
-        video="/videos/hero-partners.mp4"
         image={heroPartners}
         title="Partners & Collaborators"
         subtitle="Building bridges across continents"
         height="h-[70vh]"
       />
 
-      <section className="py-20 px-4">
+      <section className="md:py-20  py-10 px-4">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -55,7 +54,7 @@ const Partners = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+            <h2 className="text-2xl md:text-5xl font-bold mb-6 text-gradient">
               Our Global Network
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -82,7 +81,7 @@ const Partners = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-3">{type.title}</h3>
+                  <h3 className="text-2xl text-nowrap font-bold mb-3">{type.title}</h3>
                   <p className="text-muted-foreground">{type.description}</p>
                 </div>
               </motion.div>
@@ -104,7 +103,7 @@ const Partners = () => {
                 />
               </div>
               <div className="p-10">
-                <h3 className="text-3xl font-bold mb-6">
+                <h3 className="text-2xl font-bold mb-6">
                   Become a Partner
                 </h3>
                 <p className="text-xl text-muted-foreground mb-8">

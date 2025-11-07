@@ -6,23 +6,16 @@ import { BackgroundSlider } from "./BackgroundSlider";
 import { useState } from "react";
 
 const HeroSlider3D = () => {
-
-
   const [currentSlide, setCurrentSlide] = useState({
     title: "Gateway Nigeria",
-    subtitle: "Your Bridge to Global Business Success",
+    subtitle: "Industry | Trade | Investment | Travel | Immigration | Jobs",
     description:
       "Connect with international markets and unlock cross-border opportunities through our comprehensive trade solutions.",
     highlights: ["International Trade Support", "Market Entry Strategy"],
   });
 
-
-
-
   return (
     <section className="relative w-full h-[calc(100vh-80px)] md:h-screen overflow-hidden">
-  
-
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <BackgroundSlider onSlideChange={setCurrentSlide} />

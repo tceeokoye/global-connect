@@ -84,13 +84,13 @@ const ServiceTravel = () => {
       />
 
       {/* ✅ Main Section */}
-      <section className="py-20 px-4">
+      <section className="md:py-20 py-10 px-4">
         <div className="container mx-auto max-w-6xl space-y-24">
 
           {/* INTRO SECTION */}
           <AnimatedBlock direction="up">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6 text-gradient">
+              <h2 className="text-3xl font-bold mb-6 text-gradient">
                 Globalization of Travel & Tourism Renaissance
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -145,7 +145,7 @@ const ServiceTravel = () => {
 
             <AnimatedBlock direction="right">
               <div>
-                <h2 className="text-4xl font-bold mb-6 text-gradient">
+                <h2 className="text-3xl font-bold mb-6 text-gradient">
                   Our Commitment
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">

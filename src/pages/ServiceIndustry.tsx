@@ -57,14 +57,14 @@ const ServiceIndustry = () => {
       />
 
       {/* ✅ Main Content */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl space-y-24">
+      <section className="md:py-20 py-10 px-4">
+        <div className="container mx-auto max-w-6xl md:space-y-24 space-y-10">
 
-          {/* CHALLENGE SECTION */}
+        
           <AnimatedBlock direction="left">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl font-bold mb-6 text-gradient">Challenge</h2>
+                <h2 className="text-3xl font-bold mb-6 text-gradient">Challenge</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Bringing new industry sectors to Nigeria can pose daunting challenges including
                   the high cost of doing business, the need to duplicate essential infrastructure,

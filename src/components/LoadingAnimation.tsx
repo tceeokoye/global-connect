@@ -95,7 +95,7 @@ export const LoadingAnimation = () => {
         className="text-center relative"
       >
         <motion.h1 
-          className="text-5xl font-bold text-white mb-3"
+          className="md:text-5xl text- 3xl font-bold text-white mb-3"
         >
           {text}
           <motion.span

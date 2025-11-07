@@ -45,7 +45,7 @@ const Intake = () => {
         height="h-[60vh]"
       />
 
-      <section className="py-20 px-4">
+      <section className="md:py-20 py-10 px-4">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -53,7 +53,7 @@ const Intake = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4 text-gradient">
+            <h2 className="text-3xl font-bold mb-4 text-gradient">
               Client Intake Form
             </h2>
             <p className="text-xl text-muted-foreground">

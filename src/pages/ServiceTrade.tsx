@@ -25,7 +25,7 @@ const ServiceTrade = () => {
       />
 
       {/* Main Content */}
-      <section className="py-20 px-4">
+      <section className="md:py-20 py-10 px-4">
         <div className="container mx-auto max-w-6xl space-y-24">
           {/* SECTION 1 - CHALLENGE */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -37,7 +37,7 @@ const ServiceTrade = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <h2 className="text-4xl font-bold mb-6 text-gradient">Challenge</h2>
+                <h2 className="text-3xl font-bold mb-6 text-gradient">Challenge</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Clearance of goods at local ports can be slow, cumbersome, & highly bureaucratic.
                   Companies indicate that corruption & congestion remain major issues at ports. One
@@ -88,7 +88,7 @@ const ServiceTrade = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 className="order-1 md:order-2"
               >
-                <h2 className="text-4xl font-bold mb-6 text-gradient">Opportunity</h2>
+                <h2 className="text-3xl font-bold mb-6 text-gradient">Opportunity</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   U.S. goods & services trade with Nigeria totaled an estimated $10.6 billion in 2022.
                   Nigeria strives to build its agricultural, mining, & manufacturing sectors,
@@ -109,7 +109,7 @@ const ServiceTrade = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="bg-card rounded-2xl p-10 shadow-elegant"
             >
-              <h2 className="text-4xl font-bold mb-6 text-gradient">Solution</h2>
+              <h2 className="text-3xl font-bold mb-6 text-gradient">Solution</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 The Global Connect LLC will coordinate US corporate presence in Nigeria, connecting
                 agent or distributor relationships with vetted, rated, & verified locally registered

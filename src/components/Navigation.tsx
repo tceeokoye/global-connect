@@ -20,9 +20,12 @@ const Navigation = () => {
       subItems: [
         { name: "Trade", path: "/services/trade" },
         { name: "Industry", path: "/services/industry" },
+        { name: "Investment", path: "/services/investment" },
         { name: "Travel & Consulate", path: "/services/travel" },
+        { name: "Immigration Services", path: "/services/immigration" },
         { name: "Conference & Education Workshop", path: "/services/conferences" },
-        {name: "Education & Schorlarship", path: "/services/education"}
+        { name: "Education & Scholarship", path: "/services/education" },
+        { name: "Job & Career Services", path: "/services/jobs" },
       ],
     },
     { name: "Partners", path: "/partners" },
@@ -41,8 +44,9 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Global Connect Logo" className="h-10 w-auto" />
+          <Link to="/" className="flex items-center gap-2 ">
+            <img src={logo} alt="Global Connect Logo" className="h-10 w-10 flex-shrink-0" />
+            <span className="font-semibold">Global Connect LLC</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,7 +60,7 @@ const Navigation = () => {
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
                   <button
-                    onClick={() => navigate(item.path)} // 👈 Makes "Services" itself clickable
+                    onClick={() => navigate(item.path)}
                     className={`flex items-center gap-1 text-base font-medium transition-smooth hover:text-primary ${
                       isActive(item.path) ? "text-primary" : "text-foreground"
                     }`}
@@ -64,9 +68,7 @@ const Navigation = () => {
                     {item.name}
                     <ChevronDown
                       size={16}
-                      className={`transition-transform duration-200 ${
-                        isServicesOpen ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
                     />
                   </button>
 
@@ -84,9 +86,7 @@ const Navigation = () => {
                             key={sub.path}
                             to={sub.path}
                             className={`block px-4 py-2 text-sm font-medium hover:bg-primary/10 hover:text-primary transition-colors ${
-                              isActive(sub.path)
-                                ? "text-primary"
-                                : "text-foreground"
+                              isActive(sub.path) ? "text-primary" : "text-foreground"
                             }`}
                           >
                             {sub.name}
@@ -142,23 +142,15 @@ const Navigation = () => {
                   <div key={item.name} className="border-b border-border pb-2">
                     <button
                       onClick={() => {
-                        if (isServicesOpen) {
-                          // If already open, clicking again closes dropdown
-                          setIsServicesOpen(false);
-                        } else {
-                          // Open dropdown or go to services page
-                          setIsServicesOpen(true);
-                          navigate(item.path);
-                        }
+                        setIsServicesOpen(!isServicesOpen);
+                        navigate(item.path);
                       }}
                       className="flex items-center justify-between w-full py-3 text-sm font-medium text-foreground hover:text-primary"
                     >
                       {item.name}
                       <ChevronDown
                         size={16}
-                        className={`transition-transform ${
-                          isServicesOpen ? "rotate-180" : ""
-                        }`}
+                        className={`transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
                       />
                     </button>
 
@@ -177,9 +169,7 @@ const Navigation = () => {
                               to={sub.path}
                               onClick={() => setIsOpen(false)}
                               className={`block py-2 text-sm font-medium hover:text-primary ${
-                                isActive(sub.path)
-                                  ? "text-primary"
-                                  : "text-foreground"
+                                isActive(sub.path) ? "text-primary" : "text-foreground"
                               }`}
                             >
                               {sub.name}
