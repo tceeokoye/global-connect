@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// Handle preflight CORS requests
-export function OPTIONS(req: NextRequest) {
+// OPTIONS preflight
+export async function OPTIONS(req: NextRequest) {
   const allowedOrigin = getAllowedOrigin(req);
 
   const response = NextResponse.json({});

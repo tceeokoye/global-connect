@@ -73,8 +73,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     const res = await fetch("https://global-connect-gold.vercel.app/api/intake", {
       method: "POST",
-      body: data, // send as FormData
-      // do NOT set Content-Type; the browser sets multipart/form-data automatically
+      body: data,
     });
 
     const contentType = res.headers.get("content-type");
@@ -88,8 +87,8 @@ const handleSubmit = async (e: React.FormEvent) => {
         alert("Failed to send: " + json.message);
       }
     } else {
-      alert("Server returned non-JSON response. Check console.");
-      console.log(await res.text());
+      console.warn("Non-JSON response from server:", await res.text());
+      alert("Server returned unexpected response. Check console.");
     }
   } catch (err: any) {
     console.error(err);
@@ -98,6 +97,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     setLoading(false);
   }
 };
+
 
 
   return (

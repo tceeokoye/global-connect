@@ -7,9 +7,14 @@ const allowedOrigins = [
   "https://global-connect-gold.vercel.app",
 ];
 
-export async function POST(req: NextRequest) {
+// Helper to get allowed origin
+function getAllowedOrigin(req: NextRequest) {
   const origin = req.headers.get("origin") || "";
-  const allowedOrigin = allowedOrigins.includes(origin) ? origin : "";
+  return allowedOrigins.includes(origin) ? origin : "";
+}
+
+export async function POST(req: NextRequest) {
+  const allowedOrigin = getAllowedOrigin(req);
 
   try {
     const formData = await req.formData();
@@ -22,6 +27,7 @@ export async function POST(req: NextRequest) {
     const message = formData.get("message")?.toString() || "";
     const file = formData.get("file") as File | null;
 
+    // Setup transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -30,6 +36,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    // Prepare attachments
     const attachments = file
       ? [
           {
@@ -39,6 +46,7 @@ export async function POST(req: NextRequest) {
         ]
       : [];
 
+    // Send mail
     await transporter.sendMail({
       from: `"The Global Connect" <${process.env.GMAIL_USER}>`,
       to: "tceeservices@gmail.com",
@@ -70,11 +78,11 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export function OPTIONS(req: NextRequest) {
-  const origin = req.headers.get("origin") || "";
-  const allowedOrigin = allowedOrigins.includes(origin) ? origin : "";
+// Handle preflight CORS requests
+export async function OPTIONS(req: NextRequest) {
+  const allowedOrigin = getAllowedOrigin(req);
 
-  const response = NextResponse.json({});
+  const response = NextResponse.json({}); // Always return JSON to prevent fetch errors
   if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
   response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
   response.headers.set("Access-Control-Allow-Headers", "Content-Type");

@@ -45,7 +45,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
- const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
 
@@ -57,6 +57,11 @@ const Contact = () => {
       },
       body: JSON.stringify(formData),
     });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Server error: ${res.status} ${text}`);
+    }
 
     const json = await res.json();
 
@@ -73,6 +78,7 @@ const Contact = () => {
     setLoading(false);
   }
 };
+
 
 
   const handleWhatsApp = () => {
