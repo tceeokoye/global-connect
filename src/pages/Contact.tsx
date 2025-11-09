@@ -50,7 +50,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
-    const res = await fetch("https://global-connect-gold.vercel.app/app/api/contact", {
+    const res = await fetch("https://global-connect-gold.vercel.app/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
