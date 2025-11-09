@@ -39,7 +39,7 @@ const ScrollAnimate = ({
 const Team = () => {
   const ceo = {
     name: "Cajetan “CJ” Onu, JD",
-    role: "Chief Executive Officer",
+    role: "Chief Executive Officer/Founder",
     image: teamCEO,
     bio: "a distinguished legal and compliance professional, entrepreneur, and global development advocate. CJ brings a unique and powerful blend of experience across law, regulatory compliance, investigations, real estate, and public administration. He earned his Juris Doctor and completed advanced legal studies in litigation and criminal law, along with academic training at UCLA and a bachelor’s degree in public administration and criminal justice. CJ served the State of California in critical enforcement roles, including as an Inspector for the Medical Board and a Special Investigator with the Division of Investigation, where he led compliance oversight, complex investigations, and regulatory enforcement matters protecting public safety and professional integrity. In the private sector, he has excelled as a Realtor, Project Engineer, and founder of California Legal Network & Services, providing legal support and compliance advisory services to individual professionals, healthcare organizations, and business entities..",
     linkedin: "#",
@@ -114,8 +114,8 @@ const Team = () => {
                     className="w-full h-full object-cover rounded-l-3xl"
                   />
                 </div>
-                <div className="p-8 md:p-12 text-center md:text-left text-white">
-                  <h3 className="text-3xl font-bold mb-2">{ceo.name}</h3>
+                <div className="  md:py-12  md:text-left md:px-2 text-white">
+                  <h3 className="text-3xl font-bold mb-2 ">{ceo.name}</h3>
                   <p className="text-2xl mb-6 text-white/90">{ceo.role}</p>
                   <p className="text-lg mb-8 text-white/80 leading-relaxed">{ceo.bio}</p>
                   <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
