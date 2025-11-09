@@ -41,7 +41,7 @@ const Team = () => {
     name: "Cajetan “CJ” Onu, JD",
     role: "Chief Executive Officer",
     image: teamCEO,
-    bio: "A distinguished legal and compliance professional, entrepreneur, and global development advocate. CJ brings a unique and powerful blend of experience across law, regulatory compliance, investigations, real estate, and public administration. He earned his Juris Doctor and completed advanced legal studies in litigation and criminal law, along with academic training at UCLA and a bachelor’s degree in public administration and criminal justice.",
+    bio: "a distinguished legal and compliance professional, entrepreneur, and global development advocate. CJ brings a unique and powerful blend of experience across law, regulatory compliance, investigations, real estate, and public administration. He earned his Juris Doctor and completed advanced legal studies in litigation and criminal law, along with academic training at UCLA and a bachelor’s degree in public administration and criminal justice. CJ served the State of California in critical enforcement roles, including as an Inspector for the Medical Board and a Special Investigator with the Division of Investigation, where he led compliance oversight, complex investigations, and regulatory enforcement matters protecting public safety and professional integrity. In the private sector, he has excelled as a Realtor, Project Engineer, and founder of California Legal Network & Services, providing legal support and compliance advisory services to individual professionals, healthcare organizations, and business entities..",
     linkedin: "#",
     email: "onucajetan@gmail.com",
   };
