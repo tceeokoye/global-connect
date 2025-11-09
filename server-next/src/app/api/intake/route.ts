@@ -2,9 +2,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const allowedOrigins = ["http://localhost:8080","https://global-connect-gold.vercel.app"];;
+const allowedOrigins = [
+  "http://localhost:8080",
+  "https://global-connect-gold.vercel.app",
+];
 
 export async function POST(req: NextRequest) {
+  const origin = req.headers.get("origin") || "";
+  const allowedOrigin = allowedOrigins.includes(origin) ? origin : "";
+
   try {
     const formData = await req.formData();
 
@@ -14,8 +20,6 @@ export async function POST(req: NextRequest) {
     const country = formData.get("country")?.toString() || "";
     const service = formData.get("service")?.toString() || "";
     const message = formData.get("message")?.toString() || "";
-
-    // Handle file if uploaded
     const file = formData.get("file") as File | null;
 
     const transporter = nodemailer.createTransport({
@@ -52,29 +56,26 @@ export async function POST(req: NextRequest) {
       attachments,
     });
 
-    const response = NextResponse.json({
-      success: true,
-      message: "Intake email sent!",
-    });
-    response.headers.set("Access-Control-Allow-Origin", allowedOrigins[0]);
+    const response = NextResponse.json({ success: true, message: "Intake email sent!" });
+    if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
     response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
     return response;
   } catch (err: any) {
-    const response = NextResponse.json({
-      success: false,
-      message: err.message,
-    });
-    response.headers.set("Access-Control-Allow-Origin", allowedOrigins[0]);
+    const response = NextResponse.json({ success: false, message: err.message });
+    if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
     response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
     return response;
   }
 }
 
-export function OPTIONS() {
+export function OPTIONS(req: NextRequest) {
+  const origin = req.headers.get("origin") || "";
+  const allowedOrigin = allowedOrigins.includes(origin) ? origin : "";
+
   const response = NextResponse.json({});
-  response.headers.set("Access-Control-Allow-Origin", allowedOrigins[0]);
+  if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
   response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
   response.headers.set("Access-Control-Allow-Headers", "Content-Type");
   return response;

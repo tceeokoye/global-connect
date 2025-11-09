@@ -71,7 +71,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     data.append("message", formData.message);
     if (file) data.append("file", file);
 
-    const res = await fetch("http://localhost:3000/api/intake", {
+    const res = await fetch("https://global-connect-gold.vercel.app/api/intake", {
       method: "POST",
       body: data, // send as FormData
       // do NOT set Content-Type; the browser sets multipart/form-data automatically
