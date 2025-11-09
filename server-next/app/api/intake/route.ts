@@ -1,4 +1,3 @@
-// app/api/intake/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -7,18 +6,19 @@ const allowedOrigins = [
   "https://global-connect-gold.vercel.app",
 ];
 
-// Helper to get allowed origin
+// Helper: get allowed origin for CORS
 function getAllowedOrigin(req: NextRequest) {
   const origin = req.headers.get("origin") || "";
   return allowedOrigins.includes(origin) ? origin : "";
 }
 
+// POST handler
 export async function POST(req: NextRequest) {
   const allowedOrigin = getAllowedOrigin(req);
 
   try {
+    // Read form data
     const formData = await req.formData();
-
     const name = formData.get("name")?.toString() || "";
     const email = formData.get("email")?.toString() || "";
     const phone = formData.get("phone")?.toString() || "";
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const message = formData.get("message")?.toString() || "";
     const file = formData.get("file") as File | null;
 
-    // Setup transporter
+    // Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Prepare attachments
+    // Attachments if file exists
     const attachments = file
       ? [
           {
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         ]
       : [];
 
-    // Send mail
+    // Send email
     await transporter.sendMail({
       from: `"The Global Connect" <${process.env.GMAIL_USER}>`,
       to: "tceeservices@gmail.com",
@@ -64,13 +64,21 @@ export async function POST(req: NextRequest) {
       attachments,
     });
 
-    const response = NextResponse.json({ success: true, message: "Intake email sent!" });
+    // Success response
+    const response = new NextResponse(
+      JSON.stringify({ success: true, message: "Intake email sent!" }),
+      { status: 200 }
+    );
     if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
     response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
     return response;
   } catch (err: any) {
-    const response = NextResponse.json({ success: false, message: err.message });
+    // Error response
+    const response = new NextResponse(
+      JSON.stringify({ success: false, message: err.message }),
+      { status: 500 }
+    );
     if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
     response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
@@ -78,11 +86,11 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// Handle preflight CORS requests
+// OPTIONS handler for preflight CORS requests
 export async function OPTIONS(req: NextRequest) {
   const allowedOrigin = getAllowedOrigin(req);
 
-  const response = NextResponse.json({}); // Always return JSON to prevent fetch errors
+  const response = new NextResponse(null, { status: 204 });
   if (allowedOrigin) response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
   response.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
   response.headers.set("Access-Control-Allow-Headers", "Content-Type");
