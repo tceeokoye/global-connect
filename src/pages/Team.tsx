@@ -103,11 +103,11 @@ const Team = () => {
 
       {/* CEO Section */}
       <section className="md:py-20 py-10 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto w-full">
           <ScrollAnimate index={0}>
             <div className="bg-gradient-to-r from-primary to-primary-glow rounded-3xl overflow-hidden shadow-glow h-fit">
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="relative h-[538px] w-full">
+                <div className="relative h-full w-full">
                   <img
                     src={ceo.image}
                     alt={ceo.name}
