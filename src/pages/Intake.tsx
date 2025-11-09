@@ -71,7 +71,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     data.append("message", formData.message);
     if (file) data.append("file", file);
 
-    const res = await fetch("https://global-connect-gold.vercel.app/api/intake", {
+    const res = await fetch("https://global-connect-gold.vercel.app/app/api/intake", {
       method: "POST",
       body: data,
     });
