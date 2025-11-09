@@ -118,7 +118,7 @@ const Team = () => {
                   <h3 className="text-3xl font-bold mb-2 ">{ceo.name}</h3>
                   <p className="text-2xl mb-6 text-white/90">{ceo.role}</p>
                   <p className="text-lg mb-8 text-white/80 leading-relaxed">{ceo.bio}</p>
-                  <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                  <div className="flex flex-col md:flex-row gap-4 p-8 justify-center md:justify-start">
                     <Button
                       variant="outline"
                       size="lg"
