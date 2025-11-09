@@ -114,7 +114,7 @@ const Team = () => {
                     className="w-full h-full object-cover rounded-l-3xl"
                   />
                 </div>
-                <div className="  md:py-12  md:text-left md:px-2 text-white">
+                <div className="  md:py-12 px-2 md:text-left md:px-2 text-white">
                   <h3 className="text-3xl font-bold mb-2 ">{ceo.name}</h3>
                   <p className="text-2xl mb-6 text-white/90">{ceo.role}</p>
                   <p className="text-lg mb-8 text-white/80 leading-relaxed">{ceo.bio}</p>
