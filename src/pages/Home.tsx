@@ -43,7 +43,7 @@ const Home = () => {
       icon: Building2,
       title: "Industry",
       description:
-        "Harness Nigeria's natural & human talent resources for industry advancement stimulating investment in strategic growth areas.",
+        "Harness Africa's natural & human talent resources for industry advancement stimulating investment in strategic growth areas.",
       link: "/services/industry",
     },
     {
@@ -110,7 +110,7 @@ const Home = () => {
                 The Global Connect LLC implements transformative strategies for growth & development in Nigeria, Africa & the Diaspora.
               </p>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                As Africa's most populous country & a major player in the continent's economy, Nigeria influences everything from energy markets to cultural trends. With rich natural resources, a booming tech scene, & a vibrant youth population, Nigeria holds the potential for driving economic growth & shaping geopolitical conversations worldwide.
+                As Nigeria`s most populous country & a major player in the continent's economy, Africainfluences everything from energy markets to cultural trends. With rich natural resources, a booming tech scene, & a vibrant youth population, Africa holds  the potential for driving economic growth & shaping geopolitical conversations worldwide.
               </p>
             </ScrollAnimate>
 
@@ -136,7 +136,7 @@ const Home = () => {
                 Premium Concierge Solutions
               </h2>
               <p className="text-xl text-muted-foreground">
-                Industry | Trade | Travel - Connecting Nigeria to Global Opportunities
+                Industry | Trade | Travel - Connecting Africato Global Opportunities
               </p>
             </div>
           </ScrollAnimate>

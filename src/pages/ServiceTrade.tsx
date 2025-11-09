@@ -8,15 +8,15 @@ import Footer from "@/components/Footer";
 
 import sectionTrade from "@/assets/clearance-trade.jpg";
 import tradeAreas from "@/assets/global-trade.jpg";
-import HeroImage from "@/assets/hero-trade.jpg"
+import HeroImage from "@/assets/hero-trade.jpg";
 
 const ServiceTrade = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
+  
       <Navigation />
 
-      {/* Hero Section */}
+     
       <AnimatedHero
         image={HeroImage}
         title="Trade"
@@ -39,10 +39,13 @@ const ServiceTrade = () => {
               >
                 <h2 className="text-3xl font-bold mb-6 text-gradient">Challenge</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Clearance of goods at local ports can be slow, cumbersome, & highly bureaucratic.
-                  Companies indicate that corruption & congestion remain major issues at ports. One
-                  of the most daunting challenges is the lack of access to foreign exchange,
-                  reducing the ability to import necessary inputs & equipment.
+                  Clearance of goods at local ports can often be slow, cumbersome, and
+                  highly bureaucratic  causing significant delays and additional costs
+                  for traders. Many businesses face logistical barriers and complex
+                  documentation processes that limit trade efficiency and slow down
+                  supply chain movement. Additionally, limited access to foreign exchange
+                  continues to hinder the importation of vital equipment and goods
+                  required for smooth operations.
                 </p>
               </motion.div>
 
@@ -90,10 +93,12 @@ const ServiceTrade = () => {
               >
                 <h2 className="text-3xl font-bold mb-6 text-gradient">Opportunity</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  U.S. goods & services trade with Nigeria totaled an estimated $10.6 billion in 2022.
-                  Nigeria strives to build its agricultural, mining, & manufacturing sectors,
-                  especially in automotive assembly, cement, textile, & clothing areas. Nigeria is
-                  eligible for AGOA preferential trade benefits.
+                  Africa’s trade potential continues to expand, with growing demand for
+                  goods and services across sectors such as agriculture, mining,
+                  manufacturing, textiles, and logistics. As global trade routes evolve,
+                  African nations — including Nigeria — are well positioned to leverage
+                  bilateral agreements and preferential trade frameworks like AGOA to
+                  enhance export competitiveness and attract new trading partnerships.
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -111,10 +116,19 @@ const ServiceTrade = () => {
             >
               <h2 className="text-3xl font-bold mb-6 text-gradient">Solution</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                The Global Connect LLC will coordinate US corporate presence in Nigeria, connecting
-                agent or distributor relationships with vetted, rated, & verified locally registered
-                companies. TGC LLC will carefully conduct representative arrangements navigating
-                through Nigeria's complicated custom & legal environment.
+                Global Connect LLC streamlines international trade by bridging trusted
+                suppliers, distributors, and buyers across Africa and global markets.  
+                We provide comprehensive trade facilitation services designed to
+                simplify cross-border transactions, reduce bottlenecks, and ensure
+                compliance with international standards.  
+                <br />
+                <br />
+                Our services include:  
+                • Market sourcing and product verification  
+                • Import and export coordination  
+                • Customs clearance and logistics support  
+                • Trade documentation and compliance assistance  
+                • Building partnerships that simplify commerce and promote sustainable growth.
               </p>
 
               <h3 className="text-2xl font-bold mb-6">Trade Areas</h3>

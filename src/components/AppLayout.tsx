@@ -21,7 +21,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
         setIsLoading(false);
         setShowCurtain(false);
         sessionStorage.setItem("heroSliderPlayed", "true");
-      }, 3500);
+      }, 5300);
       return () => clearTimeout(timer);
     }
   }, []);

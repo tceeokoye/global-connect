@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Heart, Lightbulb, Users, TrendingUp } from "lucide-react";
+import {
+  Target,
+  Eye,
+  Heart,
+  Lightbulb,
+  Users,
+  TrendingUp,
+} from "lucide-react";
 import AnimatedHero from "@/components/AnimatedHero";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -13,36 +20,36 @@ const About = () => {
     {
       icon: Heart,
       title: "Integrity",
-      description: "Transparency and accountability in every engagement",
+      description: "Transparency and accountability in every engagement.",
     },
     {
       icon: Users,
       title: "Collaboration",
-      description: "Progress through meaningful partnerships",
+      description: "Progress through meaningful partnerships.",
     },
     {
       icon: Lightbulb,
       title: "Innovation",
-      description: "Practical, creative solutions for global challenges",
+      description: "Practical, creative solutions for global challenges.",
     },
     {
       icon: TrendingUp,
       title: "Empowerment",
-      description: "Growth through opportunity and access",
+      description: "Growth through opportunity and access.",
     },
     {
       icon: Target,
       title: "Impact",
-      description: "Success measured by transformation",
+      description: "Success measured by transformation.",
     },
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
+      {/* Hero Section */}
       <AnimatedHero
-        video="/videos/hero-about.mp4"
         image={heroAbout}
         title="Building Bridges. Creating Futures."
         subtitle="Connecting Africa, the Diaspora, and the World"
@@ -50,17 +57,19 @@ const About = () => {
       />
 
       {/* About Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 sm:px-6 md:px-10">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Left Image */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="order-2 md:order-1"
             >
               <motion.div
-                className="relative h-[500px] rounded-2xl overflow-hidden shadow-elegant"
+                className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-elegant"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -78,27 +87,31 @@ const About = () => {
               </motion.div>
             </motion.div>
 
+            {/* Right Text */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-1 md:order-2 text-center md:text-left"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gradient">
                 Who We Are
               </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-                The Global Connect, LLC is an international consulting and facilitation firm 
-                dedicated to creating sustainable bridges between Africa, the diaspora, and 
-                the rest of the world.
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-5">
+                The Global Connect, LLC is an international consulting and
+                facilitation firm dedicated to creating sustainable bridges
+                between Africa, the diaspora, and the rest of the world.
               </p>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-                We connect students, entrepreneurs, investors, and professionals with global 
-                opportunities in education, business, and career advancement.
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-5">
+                We connect students, entrepreneurs, investors, and professionals
+                with global opportunities in education, business, and career
+                advancement.
               </p>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Our approach combines deep cultural understanding with practical global expertise, 
-                ensuring every partnership creates lasting value and mutual growth.
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                Our approach combines deep cultural understanding with practical
+                global expertise, ensuring every partnership creates lasting
+                value and mutual growth.
               </p>
             </motion.div>
           </div>
@@ -106,47 +119,44 @@ const About = () => {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12">
+      <section className="py-20 px-4 bg-muted/30 sm:px-6 md:px-10">
+        <div className="container mx-auto max-w-5xl grid md:grid-cols-2 gap-10">
+          {[
+            {
+              icon: Eye,
+              title: "Our Vision",
+              text: "To be the leading global platform linking Africa's potential to international opportunity through education, investment, and collaboration.",
+            },
+            {
+              icon: Target,
+              title: "Our Mission",
+              text: "To empower individuals and institutions to engage in meaningful partnerships that drive mobility, innovation, and development across borders.",
+            },
+          ].map((item, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              key={item.title}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-card rounded-2xl p-10 shadow-elegant hover:-translate-y-2 transition-smooth"
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="bg-card rounded-2xl p-8 md:p-10 shadow-elegant hover:-translate-y-2 transition-smooth text-center md:text-left"
             >
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-6">
+                <item.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">Our Vision</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                {item.title}
+              </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To be the leading global platform linking Africa's potential to international 
-                opportunity through education, investment, and collaboration.
+                {item.text}
               </p>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-card rounded-2xl p-10 shadow-elegant hover:-translate-y-2 transition-smooth"
-            >
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                To empower individuals and institutions to engage in meaningful partnerships 
-                that drive mobility, innovation, and development across borders.
-              </p>
-            </motion.div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 sm:px-6 md:px-10">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -154,15 +164,15 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gradient">
               Our Core Values
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               These principles guide every partnership, project, and interaction
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -170,10 +180,10 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-elegant group hover:-translate-y-2 transition-smooth cursor-pointer"
+                className="bg-card rounded-2xl p-8 shadow-elegant group hover:-translate-y-2 transition-smooth text-center sm:text-left"
               >
                 <motion.div
-                  className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-smooth"
+                  className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto sm:mx-0 group-hover:bg-primary/20 transition-smooth"
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
@@ -187,22 +197,26 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 bg-muted/30">
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-muted/30 sm:px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           className="container mx-auto max-w-4xl text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             Ready to Collaborate?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's create meaningful partnerships that drive real transformation
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8">
+            Let’s create meaningful partnerships that drive real transformation.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="shadow-elegant text-lg px-12">
+            <Button
+              size="lg"
+              className="shadow-elegant text-base sm:text-lg px-8 sm:px-12"
+            >
               Schedule a Call
             </Button>
           </Link>

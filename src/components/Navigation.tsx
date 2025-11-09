@@ -13,6 +13,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
+    { name: "About", path: "/About" },
     {
       name: "Services",
       path: "/services",
@@ -23,7 +24,10 @@ const Navigation = () => {
         { name: "Investment", path: "/services/investment" },
         { name: "Travel & Consulate", path: "/services/travel" },
         { name: "Immigration Services", path: "/services/immigration" },
-        { name: "Conference & Education Workshop", path: "/services/conferences" },
+        {
+          name: "Conference & Education Workshop",
+          path: "/services/conferences",
+        },
         { name: "Education & Scholarship", path: "/services/education" },
         { name: "Job & Career Services", path: "/services/jobs" },
       ],
@@ -45,7 +49,11 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2 ">
-            <img src={logo} alt="Global Connect Logo" className="h-10 w-10 flex-shrink-0" />
+            <img
+              src={logo}
+              alt="Global Connect Logo"
+              className="h-10 w-10 flex-shrink-0"
+            />
             <span className="font-semibold">Global Connect LLC</span>
           </Link>
 
@@ -68,7 +76,9 @@ const Navigation = () => {
                     {item.name}
                     <ChevronDown
                       size={16}
-                      className={`transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                      className={`transition-transform duration-200 ${
+                        isServicesOpen ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
 
@@ -86,7 +96,9 @@ const Navigation = () => {
                             key={sub.path}
                             to={sub.path}
                             className={`block px-4 py-2 text-sm font-medium hover:bg-primary/10 hover:text-primary transition-colors ${
-                              isActive(sub.path) ? "text-primary" : "text-foreground"
+                              isActive(sub.path)
+                                ? "text-primary"
+                                : "text-foreground"
                             }`}
                           >
                             {sub.name}
@@ -133,70 +145,85 @@ const Navigation = () => {
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
+              animate={{ opacity: 1, height: "70vh" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden pb-6"
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="fixed inset-x-0 top-[64px] z-40 md:hidden bg-background/95 backdrop-blur-md pb-6 shadow-lg rounded-b-3xl overflow-y-auto"
             >
-              {navItems.map((item) =>
-                item.hasDropdown ? (
-                  <div key={item.name} className="border-b border-border pb-2">
-                    <button
-                      onClick={() => {
-                        setIsServicesOpen(!isServicesOpen);
-                        navigate(item.path);
-                      }}
-                      className="flex items-center justify-between w-full py-3 text-sm font-medium text-foreground hover:text-primary"
+              <div className="px-4">
+                {navItems.map((item) =>
+                  item.hasDropdown ? (
+                    <div
+                      key={item.name}
+                      className="border-b border-border pb-2"
+                    >
+                      <button
+                        onClick={() => {
+                          setIsServicesOpen(!isServicesOpen);
+                          navigate(item.path);
+                        }}
+                        className="flex items-center justify-between w-full py-3 text-base font-medium text-foreground hover:text-primary"
+                      >
+                        {item.name}
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform duration-300 ${
+                            isServicesOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+
+                      {/* Mobile Dropdown */}
+                      <AnimatePresence>
+                        {isServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                            className="pl-4"
+                          >
+                            {item.subItems?.map((sub) => (
+                              <Link
+                                key={sub.path}
+                                to={sub.path}
+                                onClick={() => setIsOpen(false)}
+                                className={`block py-2 text-sm font-medium hover:text-primary transition-smooth ${
+                                  isActive(sub.path)
+                                    ? "text-primary"
+                                    : "text-foreground"
+                                }`}
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-3 text-base font-medium transition-smooth hover:text-primary ${
+                        isActive(item.path) ? "text-primary" : "text-foreground"
+                      }`}
                     >
                       {item.name}
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
+                    </Link>
+                  )
+                )}
 
-                    {/* Mobile Dropdown */}
-                    <AnimatePresence>
-                      {isServicesOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="pl-4"
-                        >
-                          {item.subItems?.map((sub) => (
-                            <Link
-                              key={sub.path}
-                              to={sub.path}
-                              onClick={() => setIsOpen(false)}
-                              className={`block py-2 text-sm font-medium hover:text-primary ${
-                                isActive(sub.path) ? "text-primary" : "text-foreground"
-                              }`}
-                            >
-                              {sub.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`block py-3 text-sm font-medium transition-smooth hover:text-primary ${
-                      isActive(item.path) ? "text-primary" : "text-foreground"
-                    }`}
+                <Link to="/intake" onClick={() => setIsOpen(false)}>
+                  <Button
+                    variant="default"
+                    className="w-full mt-6 text-base font-semibold shadow-elegant"
                   >
-                    {item.name}
-                  </Link>
-                )
-              )}
-              <Link to="/intake" onClick={() => setIsOpen(false)}>
-                <Button variant="default" className="w-full mt-4">
-                  Get Started
-                </Button>
-              </Link>
+                    Get Started
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

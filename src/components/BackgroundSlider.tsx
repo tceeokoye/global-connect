@@ -6,7 +6,7 @@ const slides = [
   {
     image:
       "/backgrounds/section-partnership.jpg",
-    title: "Gateway Nigeria",
+    title: "Gateway Africa",
     subtitle: "Your Bridge to Global Business Success",
     description:
       "Connect with international markets and unlock cross-border opportunities through our comprehensive trade solutions.",
@@ -15,7 +15,7 @@ const slides = [
   {
     image:
       "/backgrounds/hero-education.jpg",
-    title: "Gateway Nigeria",
+    title: "Gateway Africa",
     subtitle: "Excellence in Global Education",
     description:
       "Access world-class educational opportunities and professional development programs tailored to your aspirations.",
@@ -24,7 +24,7 @@ const slides = [
   {
     image:
       "/backgrounds/investment.avif",
-    title: "Gateway Nigeria",
+    title: "Gateway Africa",
     subtitle: "Investment Without Borders",
     description:
       "Navigate investment opportunities with expert guidance and comprehensive market insights.",
@@ -33,7 +33,7 @@ const slides = [
   {
     image:
       "/backgrounds/hero-intake.jpg",
-    title: "Gateway Nigeria",
+    title: "Gateway Africa",
     subtitle: "Seamless Immigration Services",
     description:
       "Transform your global mobility with our expert immigration and visa support services.",
@@ -42,7 +42,7 @@ const slides = [
   {
     image:
       "/backgrounds/tourism.jpg",
-    title: "Gateway Nigeria",
+    title: "Gateway Africa",
     subtitle: "Travel & Tourism Excellence",
     description:
       "Experience hassle-free travel planning and tourism services tailored to your needs.",

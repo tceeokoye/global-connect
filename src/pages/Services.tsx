@@ -22,7 +22,7 @@ const Services = () => {
       icon: Building2,
       title: "Industry",
       description:
-        "Harness Nigeria's natural & human talent resources for industry advancement stimulating outside investment in strategic growth areas including Aerospace, Entertainment (Nollywood), Healthcare, Technology, AI, and more.",
+        "Harness Africa's natural & human talent resources for industry advancement stimulating outside investment in strategic growth areas including Aerospace, Entertainment (Nollywood), Healthcare, Technology, AI, and more.",
       link: "/services/industry",
     },
     {

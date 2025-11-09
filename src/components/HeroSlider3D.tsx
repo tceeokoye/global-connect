@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const HeroSlider3D = () => {
   const [currentSlide, setCurrentSlide] = useState({
-    title: "Gateway Nigeria",
+    title: "Gateway Africa",
     subtitle: "Industry | Trade | Investment | Travel | Immigration | Jobs",
     description:
       "Connect with international markets and unlock cross-border opportunities through our comprehensive trade solutions.",

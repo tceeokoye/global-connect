@@ -385,7 +385,7 @@ const Globe3D = () => {
             ease: "linear",
           }}
         >
-          Gateway Nigeria
+          Gateway Africa
         </motion.h1>
         <motion.p 
           className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-semibold text-white/95 mb-4 sm:mb-6 md:mb-8 max-w-4xl mx-auto"
@@ -396,7 +396,7 @@ const Globe3D = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Connecting Nigeria to the Global Community
+          Connecting Africato the Global Community
         </motion.p>
       </motion.div>
 

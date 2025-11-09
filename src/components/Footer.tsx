@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo22.png";
 
 const Footer = () => {
   return (
@@ -18,27 +18,50 @@ const Footer = () => {
             <h3 className="font-bold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/About"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/partners" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/partners"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Partners
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/team"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Our Team
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/contact"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Contact
                 </Link>
               </li>
@@ -49,23 +72,67 @@ const Footer = () => {
             <h3 className="font-bold mb-4 text-foreground">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services/education" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/services/education"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Study Abroad
                 </Link>
               </li>
               <li>
-                <Link to="/services/immigration" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/services/immigration"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Immigration
                 </Link>
               </li>
               <li>
-                <Link to="/services/investment" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/services/investment"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Investment
                 </Link>
               </li>
               <li>
-                <Link to="/services/jobs" className="text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/services/jobs"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Job Placement
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/travel"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  Travel $ Consulate
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/conferences"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  Conference and Education Workshop
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/trade"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  Trade
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/industry"
+                  className="text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  Industry
                 </Link>
               </li>
             </ul>
@@ -80,18 +147,25 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Phone className="w-4 h-4 flex-shrink-0 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>+1 (818) 300 5881 (USA)</span>
+              </li>
+              <li className="flex items-center gap-2 text-muted-foreground text-sm">
+                <Phone className="w-4 h-4 flex-shrink-0 text-primary" />
+                <span> +234 816 276 8597 (NIG)</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Mail className="w-4 h-4 flex-shrink-0 text-primary" />
-                <span>info@globalconnect.com</span>
+                <span>cconuglobal@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-border text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} Global Connect LLC. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Global Connect LLC. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

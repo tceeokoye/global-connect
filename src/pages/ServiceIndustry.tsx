@@ -52,7 +52,7 @@ const ServiceIndustry = () => {
       <AnimatedHero
         image={heroHome}
         title="Industry"
-        subtitle="Harness Nigeria's natural & human talent resources for industry advancement"
+        subtitle="Harness Africa's natural & human talent resources for industry advancement"
         height="h-[70vh]"
       />
 
@@ -66,9 +66,9 @@ const ServiceIndustry = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-6 text-gradient">Challenge</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Bringing new industry sectors to Nigeria can pose daunting challenges including
+                  Bringing new industry sectors to Africa can pose daunting challenges including
                   the high cost of doing business, the need to duplicate essential infrastructure,
-                  insecurity, corruption, the lack of effective judicial due process, and
+                  insecurity, the lack of effective judicial due process, and
                   nontransparent economic decision-making in government procurement.
                 </p>
               </div>
@@ -99,7 +99,7 @@ const ServiceIndustry = () => {
               <div className="order-1 md:order-2">
                 <h2 className="text-4xl font-bold mb-6 text-gradient">Opportunity</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  U.S. direct investment in Nigeria is led by mining, information services, and
+                  U.S. direct investment in Africais led by mining, information services, and
                   professional, scientific, and technical services. Many Nigerian Diaspora citizens
                   have excelled as a professional talent pool within these sectors with opportunities
                   to re-integrate them into Nigeria’s industrial infrastructure.
