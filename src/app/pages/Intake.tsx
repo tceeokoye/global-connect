@@ -67,56 +67,61 @@ export default function Intake() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const data = new FormData();
-      data.append("name", formData.name);
-      data.append("email", formData.email);
-      data.append("phone", formData.phone);
-      data.append("country", formData.country);
-      data.append("service", formData.service);
-      data.append("message", formData.message);
-      if (file) data.append("file", file);
+  try {
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("country", formData.country);
+    data.append("service", formData.service);
+    data.append("message", formData.message);
+    if (file) data.append("file", file);
 
-      const res = await fetch(
-        "https://global-connect-gold.vercel.app/api/intake",
-        {
-          method: "POST",
-          body: data,
-          headers: { Accept: "application/json" },
-        }
-      );
-
-      const contentType = res.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        const json = await res.json();
-        if (json.success) {
-          setShowModal(true);
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            country: "",
-            service: "",
-            message: "",
-          });
-          setFile(null);
-        } else {
-          toast.error("Failed to send: " + json.message);
-        }
-      } else {
-        console.warn("Non-JSON response from server:", await res.text());
-        toast.error("Server returned unexpected response.");
+    const res = await fetch(
+      "https://global-connect-gold.vercel.app/api/intake",
+      {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
       }
-    } catch (err: any) {
-      console.error(err);
-      toast.error("An error occurred: " + err.message);
-    } finally {
-      setLoading(false);
+    );
+
+    const text = await res.text(); // read as text first
+    let json;
+    try {
+      json = JSON.parse(text); // try parsing as JSON
+    } catch {
+      console.warn("Server returned non-JSON response:", text);
+      toast.error("Server returned unexpected response.");
+      return;
     }
-  };
+
+    if (json.success) {
+      setShowModal(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        country: "",
+        service: "",
+        message: "",
+      });
+      setFile(null);
+      toast.success(json.message || "Form submitted successfully!");
+    } else {
+      toast.error("Failed to send: " + (json.message || "Unknown error"));
+    }
+  } catch (err: any) {
+    console.error(err);
+    toast.error("An error occurred: " + err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
 
   return (
