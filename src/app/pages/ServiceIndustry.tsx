@@ -5,21 +5,18 @@ import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AnimatedHero from "@/components/AnimatedHero";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import Image from "next/image";
 import heroHome from "@/assets/industry-section.jpg";
-import sectionIndustry from "@/assets/bussiness.jpg";
+import sectionIndustry from "@/assets/investment-opportunities.jpg";
 import industrySectors from "@/assets/investment.jpg";
 import { useInView } from "react-intersection-observer";
-import Image from "next/image";
 import { AnimatedBlockProps } from "@/types/global";
 
 const AnimatedBlock: React.FC<AnimatedBlockProps> = ({ children, direction = "up" }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true, 
-    threshold: 0.15,   
+    triggerOnce: true,
+    threshold: 0.15,
   });
-
 
   let x = 0;
   let y = 0;
@@ -54,73 +51,96 @@ const AnimatedBlock: React.FC<AnimatedBlockProps> = ({ children, direction = "up
         )}
       </AnimatePresence>
     </div>
-  );};
+  );
+};
 
-export default function ServiceIndustry () {
-     const MotionImage = motion(Image);
+export default function ServiceIndustry() {
+  const MotionImage = motion(Image);
+
+  const investmentBenefits = [
+    "Access to a large and growing market",
+    "Competitive operating and labor costs",
+    "Strong government support and incentives",
+    "High potential for innovation and expansion",
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-  
+      {/* Hero */}
       <AnimatedHero
         image={heroHome}
-        title="Industry"
+        title="Opportunities & Benefits of Bringing Industries to Africa"
         subtitle="Harness Africa's natural & human talent resources for industry advancement"
         height="h-[70vh]"
       />
 
-      {/* ✅ Main Content */}
+      {/* Main Content */}
       <section className="md:py-20 py-10 px-4">
         <div className="container mx-auto max-w-6xl md:space-y-24 space-y-10">
 
-        
+          {/* Intro Section */}
           <AnimatedBlock direction="left">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6 text-gradient">Challenge</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Bringing new industry sectors to Africa can pose daunting challenges including
-                  the high cost of doing business, the need to duplicate essential infrastructure,
-                  insecurity, the lack of effective judicial due process, and
-                  nontransparent economic decision-making in government procurement.
-                </p>
-              </div>
               <MotionImage
                 src={sectionIndustry}
-                alt="Industry challenges"
+                alt="Industry in Africa"
                 className="rounded-2xl shadow-elegant"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
               />
-            </div>
-          </AnimatedBlock>
-
-          {/* OPPORTUNITY SECTION */}
-          <AnimatedBlock direction="right">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <MotionImage
-                src={industrySectors}
-                alt="Industry sectors"
-                className="rounded-2xl shadow-elegant order-2 md:order-1"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-              />
-              <div className="order-1 md:order-2">
-                <h2 className="text-4xl font-bold mb-6 text-gradient">Opportunity</h2>
+              <div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  U.S. direct investment in Africais led by mining, information services, and
-                  professional, scientific, and technical services. Many Nigerian Diaspora citizens
-                  have excelled as a professional talent pool within these sectors with opportunities
-                  to re-integrate them into Nigeria’s industrial infrastructure.
+                  Africa especially Nigeria offers exceptional opportunities for industrial growth and investment.
+                  With expanding sectors such as mining, information services, and professional services, the continent
+                  is rapidly emerging as a strategic destination for global industry. A key advantage is the depth of
+                  the Nigerian Diaspora, whose worldwide expertise strengthens local capacity and accelerates innovation.
                 </p>
               </div>
             </div>
           </AnimatedBlock>
 
-          {/* SOLUTION SECTION */}
+          {/* Benefits Section */}
+          <AnimatedBlock direction="right">
+            <motion.div
+              className="bg-card rounded-2xl p-10 shadow-elegant"
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold mb-6 text-gradient">Benefits for Investors</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Africa presents a compelling investment environment with strong long-term value:
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {investmentBenefits.map((benefit, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                  >
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                    <span className="text-lg">{benefit}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <h3 className="text-2xl font-bold mt-8 mb-4">Why Africa, Why Now?</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Bringing industries to Africa creates shared value for investors, the diaspora, and local communities.
+                It strengthens economies, empowers workforce development, and positions the continent as a strategic hub
+                for global growth, innovation, and enterprise.
+              </p>
+            </motion.div>
+          </AnimatedBlock>
+
+          {/* Industry Sectors */}
           <AnimatedBlock direction="up">
             <motion.div
               className="bg-card rounded-2xl p-10 shadow-elegant"
@@ -129,14 +149,6 @@ export default function ServiceIndustry () {
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-6 text-gradient">Solution</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                The Global Connect LLC will coalesce Diaspora citizens with professional credentials,
-                abroad experience, and expertise with high net worth to reinvest back into their
-                homeland with both financial and talent resources. TGC LLC will restore confidence
-                through security and good corporate governance.
-              </p>
-
               <h3 className="text-2xl font-bold mb-6">Industry Sectors</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
@@ -152,11 +164,7 @@ export default function ServiceIndustry () {
                     key={sector}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: index * 0.1,
-                      ease: "easeOut",
-                    }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                     viewport={{ once: true }}
                     className="flex items-start gap-3"
                   >
@@ -168,7 +176,7 @@ export default function ServiceIndustry () {
             </motion.div>
           </AnimatedBlock>
 
-          {/* CTA SECTION */}
+          {/* CTA Section */}
           <AnimatedBlock direction="down">
             <motion.div
               className="mt-12 text-center"
@@ -186,9 +194,6 @@ export default function ServiceIndustry () {
           </AnimatedBlock>
         </div>
       </section>
-
-
     </div>
   );
-};
-
+}

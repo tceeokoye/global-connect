@@ -12,11 +12,9 @@ import {
   UserCheck,
   Briefcase,
 } from "lucide-react";
-import AnimatedHero from "@/components/AnimatedHero";
+
 import ServiceCard from "@/components/ServiceCard";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import heroServices from "@/assets/hero-services.jpg";
+
 import HeroSlider3D from "@/components/HeroSlider3D";
 
 export default function Services() {
@@ -28,18 +26,12 @@ export default function Services() {
         "Harness Africa's natural & human talent resources for industry advancement stimulating outside investment in strategic growth areas including Aerospace, Entertainment (Nollywood), Healthcare, Technology, AI, and more.",
       link: "/services/industry",
     },
-    {
-      icon: Globe,
-      title: "Trading",
-      description:
-        "Unleash Nigeria's commerce potential for global market penetration via strategies for Nigerian & African led import/export & shipping enterprises across Agriculture, Oil/Gas/Mining, Textiles, and Machinery/Automotive sectors.",
-      link: "/services/trade",
-    },
+   
     {
       icon: DollarSign,
-      title: "Investment",
+      title: "Investment & Trade",
       description:
-        "Provide strategic investment opportunities to Nigerian and international investors, supporting economic growth through targeted capital allocation, funding programs, and advisory services across sectors.",
+        "Provide strategic investment opportunities to Africa and international investors, supporting economic growth through targeted capital allocation, funding programs, and advisory services across sectors.",
       link: "/services/investment",
     },
     {
@@ -60,21 +52,21 @@ export default function Services() {
       icon: Users,
       title: "Conferences & Educational Workshops",
       description:
-        "High-impact conferences, seminars, and educational workshops for Nigerians and government officials looking to host events in the U.S., Canada, and the U.K.",
+        "High-impact conferences, seminars, and educational workshops for Africans and government officials looking to host events in the U.S., Canada, and the U.K.",
       link: "/services/conferences",
     },
     {
       icon: GraduationCap,
       title: "Education & Scholarship Programs",
       description:
-        "Empowering Nigerian students through international education partnerships and scholarship opportunities that support undergraduate, postgraduate, and professional training programs abroad.",
+        "Empowering African students through international education partnerships and scholarship opportunities that support undergraduate, postgraduate, and professional training programs abroad.",
       link: "/services/education",
     },
     {
       icon: Briefcase,
       title: "Job & Career Services",
       description:
-        "Providing career guidance, recruitment, and job placement assistance for Nigerians seeking global employment opportunities, connecting talent with companies worldwide.",
+        "Providing career guidance, recruitment, and job placement assistance for Africans seeking global employment opportunities, connecting talent with companies worldwide.",
       link: "/services/jobs",
     },
   ];

@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import AnimatedHero from "@/components/AnimatedHero";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+
 
 import { useState } from "react";
 import heroContact from "@/assets/hero-contact.jpg";
@@ -20,7 +19,6 @@ const ButtonLoader = () => (
   />
 );
 
-// Confirmation Modal
 const Modal = ({ onClose }: { onClose: () => void }) => (
   <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
     <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md text-center">
@@ -97,7 +95,6 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
       <AnimatedHero
         image={heroContact}
         title="Contact Us"
@@ -117,9 +114,7 @@ export default function ContactUs() {
                 Get in Touch
               </h2>
               <p className="text-xl text-muted-foreground mb-4">
-                <strong>Cajetan CJ Onu, JD</strong>
-                <br />
-                Founder & CEO, The Global Connect LLC
+                 Global Connect LLC
               </p>
               <p className="text-xl text-muted-foreground mb-8">
                 Have questions about our services? Ready to explore Africa's potential 
@@ -238,7 +233,7 @@ export default function ContactUs() {
       </section>
 
       {showModal && <Modal onClose={() => setShowModal(false)} />}
-      <Footer />
+    
     </div>
   );
 }

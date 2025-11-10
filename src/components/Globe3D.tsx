@@ -398,7 +398,7 @@ const Globe3D = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Connecting Africato the Global Community
+          Connecting Africa to the Global Community
         </motion.p>
       </motion.div>
 

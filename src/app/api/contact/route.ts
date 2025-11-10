@@ -29,7 +29,7 @@ async function sendMail(data: any) {
 
   await transporter.sendMail({
     from: `"The Global Connect" <${process.env.GMAIL_USER}>`,
-    to: "tceeservices@gmail.com",
+    to: "cconuglobal@gmail.com",
     replyTo: data.email,
     subject: `Contact Us - ${data.subject}`,
     html: `

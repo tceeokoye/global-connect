@@ -116,8 +116,8 @@ export default function Home() {
                 growth & development in Nigeria, Africa & the Diaspora.
               </p>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                As Nigeria`s most populous country & a major player in the
-                continent's economy, Africainfluences everything from energy
+                As Africa`s most populous country & a major player in the
+                continent's economy, Nigeria influences everything from energy
                 markets to cultural trends. With rich natural resources, a
                 booming tech scene, & a vibrant youth population, Africa holds
                 the potential for driving economic growth & shaping geopolitical
@@ -147,7 +147,7 @@ export default function Home() {
                 Premium Concierge Solutions
               </h2>
               <p className="text-xl text-muted-foreground">
-                Industry | Trade | Travel - Connecting Africato Global
+                Industry | Trade | Travel - Connecting Africa to Global
                 Opportunities
               </p>
             </div>

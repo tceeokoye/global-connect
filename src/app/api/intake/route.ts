@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
     // ✅ Send email
     await transporter.sendMail({
       from: `"The Global Connect" <${process.env.GMAIL_USER}>`,
-      to: "tceeservices@gmail.com",
+      to: "cconuglobal@gmail.com",
       replyTo: email,
       subject: `Client Intake Form - ${service || "General Inquiry"}`,
       html: `

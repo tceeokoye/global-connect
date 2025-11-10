@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import AnimatedHero from "@/components/AnimatedHero";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Handshake, Globe2, Target } from "lucide-react";
 import heroInvestment from "@/assets/hero-investment.jpg";
 import africanBusiness from "@/assets/african-business.jpg";
+import tradeImage from "@/assets/african-trade.jpg";
+import investmentImage from "@/assets/investment-opportunities.jpg";
 import Image from "next/image";
-
 
 const ScrollAnimate = ({
   children,
@@ -33,7 +33,6 @@ const ScrollAnimate = ({
   }, []);
 
   let initial: any = { opacity: 0, x: 0, y: 30 };
-
   if (isLg) {
     if (total === 1) initial = { opacity: 0, y: 30 };
     else initial = { opacity: 0, y: index % 2 === 0 ? 50 : -50 };
@@ -54,44 +53,62 @@ const ScrollAnimate = ({
   );
 };
 
-export default function ServiceInvestment (){
-  const features = [
+export default function ServiceInvestment() {
+  const MotionImage = motion(Image);
+
+  const investmentBenefits = [
+    {
+      icon: TrendingUp,
+      title: "Market Access",
+      description: "Access to a large and growing African market.",
+    },
     {
       icon: Handshake,
-      title: "Partnership Building",
-      description: "Connecting diaspora investors with vetted opportunities",
+      title: "Government Support",
+      description: "Strong government incentives for investors.",
     },
     {
       icon: Globe2,
-      title: "Market Access",
-      description: "Navigate African markets with local expertise",
+      title: "Innovation Potential",
+      description: "High potential for growth and innovative projects.",
     },
     {
       icon: Target,
-      title: "Investment Strategy",
-      description: "Data-driven market research and feasibility analysis",
+      title: "Competitive Costs",
+      description: "Affordable operating and labor costs.",
+    },
+  ];
+
+  const tradeOpportunities = [
+    {
+      icon: Globe2,
+      title: "Agriculture & Agro-Processing",
+      description: "Driving food security and export growth.",
     },
     {
       icon: TrendingUp,
-      title: "Joint Ventures",
-      description: "Facilitate strategic collaborations for mutual growth",
+      title: "Energy & Clean Tech",
+      description: "Expanding renewable and infrastructure investment.",
+    },
+    {
+      icon: Handshake,
+      title: "Healthcare & Medical Supply",
+      description: "Strengthening clinical and public health capacity.",
+    },
+    {
+      icon: Target,
+      title: "Digital Trade & Innovation",
+      description: "Empowering fintech, logistics, and e-commerce.",
+    },
+    {
+      icon: Globe2,
+      title: "Infrastructure Development",
+      description: "Building ports, transport, and logistics hubs.",
     },
   ];
 
-  const serviceItems = [
-    "Market research and feasibility analysis",
-    "Investor introductions and trade missions",
-    "Joint venture facilitation and partnership development",
-    "Business registration and legal setup support",
-    "Regulatory compliance and market entry strategy",
-  ];
-
-
-     const MotionImage = motion(Image);
-
   return (
     <div className="min-h-screen">
-
       {/* Hero */}
       <AnimatedHero
         image={heroInvestment}
@@ -106,82 +123,89 @@ export default function ServiceInvestment (){
         }
       />
 
-      <section className="md:py-20 py-10 px-4">
+      <section className="md:py-20 py-10 px-4 overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           {/* Intro Section */}
           <ScrollAnimate index={0} className="text-center mb-16" total={1}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">
-              Connecting Investors to African Markets
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+              Opportunities & Benefits of Bringing Industries to Africa
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We connect diaspora investors and global partners to vetted African opportunities, 
-              facilitating strategic partnerships for sustainable growth
+              Africa especially Nigeria offers exceptional opportunities for industrial growth and investment.
+              Expanding sectors such as mining, information services, and professional services make the continent
+              a strategic destination. A key advantage is the depth of the Nigerian Diaspora, whose worldwide
+              expertise strengthens local capacity and accelerates innovation.
             </p>
           </ScrollAnimate>
 
-          {/* Feature Cards */}
+          {/* Investment Benefits Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {features.map((feature, index) => (
-              <ScrollAnimate key={feature.title} index={index} total={features.length}>
+            {investmentBenefits.map((item, index) => (
+              <ScrollAnimate key={item.title} index={index} total={investmentBenefits.length}>
                 <motion.div
                   whileHover={{ y: -10, rotateY: 5, scale: 1.05 }}
                   className="bg-card rounded-2xl p-8 shadow-elegant text-center"
                   style={{ transformStyle: "preserve-3d" }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"
                     whileHover={{ rotate: 360, scale: 1.2 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <feature.icon className="w-8 h-8 text-primary" />
+                    <item.icon className="w-8 h-8 text-primary" />
                   </motion.div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
                 </motion.div>
               </ScrollAnimate>
             ))}
           </div>
 
-          {/* Services + Image */}
+          {/* Trade Opportunities Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {tradeOpportunities.map((item, index) => (
+              <ScrollAnimate key={item.title} index={index} total={tradeOpportunities.length}>
+                <motion.div
+                  whileHover={{ y: -10, rotateY: 5, scale: 1.05 }}
+                  className="bg-card rounded-2xl p-6 shadow-elegant flex gap-4 items-start"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <item.icon className="w-8 h-8 text-primary mt-1" />
+                  <div>
+                    <h4 className="font-semibold text-lg">{item.title}</h4>
+                    <p className="text-muted-foreground text-sm">{item.description}</p>
+                  </div>
+                </motion.div>
+              </ScrollAnimate>
+            ))}
+          </div>
+
+          {/* Image + Text Section */}
           <ScrollAnimate index={0} total={1}>
             <div className="bg-card rounded-2xl overflow-hidden shadow-elegant grid grid-cols-1 lg:grid-cols-2 gap-0">
-              {/* Image */}
-              <motion.div 
+              <motion.div
                 className="h-64 lg:h-auto overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
               >
-                <MotionImage  
-                  src={africanBusiness} 
+                <MotionImage
+                  src={africanBusiness}
                   alt="African business and investment opportunities"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
 
-              {/* Services Text */}
               <div className="p-10">
-                <h3 className="text-3xl font-bold mb-6">Services Include</h3>
-                <div className="space-y-4 mb-8">
-                  {serviceItems.map((item, i) => (
-                    <ScrollAnimate key={i} index={i} total={serviceItems.length}>
-                      <div className="flex items-start gap-3">
-                        <motion.div 
-                          className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"
-                          animate={{ scale: [1, 1.5, 1] }}
-                          transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
-                        />
-                        <p className="text-muted-foreground">{item}</p>
-                      </div>
-                    </ScrollAnimate>
-                  ))}
-                </div>
-                <motion.div 
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <h3 className="text-3xl font-bold mb-6">Why Invest in Africa</h3>
+                <p className="text-muted-foreground mb-6">
+                  Favorable investment policies, skilled workforce, and strong diaspora engagement create a
+                  fertile environment for growth. Expanding partnerships in energy, logistics, and technology sectors
+                  ensure sustainable opportunities for investors.
+                </p>
+                <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
                   <Link href="/partners">
                     <Button size="lg" className="shadow-elegant text-lg px-10">
-                      Become a Partner
+                      Let’s Build Global Bridges
                     </Button>
                   </Link>
                 </motion.div>
@@ -190,10 +214,6 @@ export default function ServiceInvestment (){
           </ScrollAnimate>
         </div>
       </section>
-
-  
     </div>
   );
-};
-
-
+}

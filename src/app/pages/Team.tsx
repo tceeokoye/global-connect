@@ -1,13 +1,12 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+
 import AnimatedHero from "@/components/AnimatedHero";
 import { Button } from "@/components/ui/button";
 import heroTeam from "@/assets/hero-team.jpg";
-import teamCEO from "@/assets/team-ceo.jpg";
+import teamCEO from "@/assets/CEO.jpeg";
 import teamOperations from "@/assets/cto.svg";
 import teamMarketing from "@/assets/team-marketing.jpg";
 import teamImmigration from "@/assets/team-immigration.jpg";
@@ -37,15 +36,17 @@ const ScrollAnimate = ({
     </motion.div>
   );
 };
-  const MotionImage = motion(Image);
+const MotionImage = motion(Image);
 
-export default function Team (){
+export default function Team() {
   const ceo = {
     name: "Cajetan “CJ” Onu, JD",
-    role: "Chief Executive Officer/Founder",
+    role: "Founder & Principal – The Global Connect, LLC",
+    sub:
+      "Legal and Compliance Professional | Entrepreneur | Global Development Advocate",
     image: teamCEO,
-    bio: "a distinguished legal and compliance professional, entrepreneur, and global development advocate. CJ brings a unique and powerful blend of experience across law, regulatory compliance, investigations, real estate, and public administration. He earned his Juris Doctor and completed advanced legal studies in litigation and criminal law, along with academic training at UCLA and a bachelor’s degree in public administration and criminal justice. CJ served the State of California in critical enforcement roles, including as an Inspector for the Medical Board and a Special Investigator with the Division of Investigation, where he led compliance oversight, complex investigations, and regulatory enforcement matters protecting public safety and professional integrity. In the private sector, he has excelled as a Realtor, Project Engineer, and founder of California Legal Network & Services, providing legal support and compliance advisory services to individual professionals, healthcare organizations, and business entities..",
-    linkedin: "#",
+    bio:
+      "Cajetan “CJ” Onu, JD, is a distinguished legal and compliance professional, entrepreneur, and global development advocate. As Founder and Principal of The Global Connect, LLC, he leads cross-continental initiatives that connect Africa, the diaspora, and global partners through education, trade, investment, and sustainable development. CJ’s multidisciplinary background covers law, regulatory compliance, investigations, real estate, and public administration, enabling him to design ethical, practical, and globally integrated solutions that strengthen governance, enterprise, and institutional collaboration. He holds a Juris Doctor, with advanced studies in litigation, criminal law, and construction management, and a bachelor’s degree in public administration. His professional experience includes serving as a Project Engineer and Coordinator with a major construction firm in Los Angeles, California, and holding key public-service roles with the Medical Board of California and the Health Quality Investigation Unit (HQIU), where he conducted investigations and oversaw healthcare compliance and regulatory integrity. As an entrepreneur and consultant, CJ has developed a global network of partners across the United States, Africa, and the diaspora—connecting businesses, governments, and institutions to strategic opportunities in trade, clean energy, and international collaboration. “Our mission is to empower Africa’s growth by building credible, transparent, and sustainable partnerships that benefit people, communities, and economies worldwide.” — Cajetan “CJ” Onu, JD",
     email: "onucajetan@gmail.com",
   };
 
@@ -70,7 +71,8 @@ export default function Team (){
       name: "Fatima Ibrahim",
       role: "Immigration Services Lead",
       image: teamImmigration,
-      bio: "Expert in visa processing and immigration law with a passion for helping families relocate.",
+      bio:
+        "Expert in visa processing and immigration law with a passion for helping families relocate.",
       linkedin: "#",
       email: "fatima@globalconnect.com",
     },
@@ -78,7 +80,8 @@ export default function Team (){
       name: "Chidi Nwosu",
       role: "Education Counselor",
       image: teamEducation,
-      bio: "Guiding students to find the perfect academic programs that match their goals.",
+      bio:
+        "Guiding students to find the perfect academic programs that match their goals.",
       linkedin: "#",
       email: "chidi@globalconnect.com",
     },
@@ -86,7 +89,8 @@ export default function Team (){
       name: "Zara Kamara",
       role: "HR & Recruitment Specialist",
       image: teamHR,
-      bio: "Connecting talented professionals with career opportunities across the globe.",
+      bio:
+        "Connecting talented professionals with career opportunities across the globe.",
       linkedin: "#",
       email: "zara@globalconnect.com",
     },
@@ -94,9 +98,7 @@ export default function Team (){
 
   return (
     <div className="min-h-screen overflow-hidden">
-   
-
-      {/* Hero Section */}
+ 
       <AnimatedHero
         image={heroTeam}
         title="Meet Our Team"
@@ -104,41 +106,48 @@ export default function Team (){
         height="h-[60vh]"
       />
 
-      {/* CEO Section */}
       <section className="md:py-20 py-10 px-4">
         <div className="container mx-auto w-full">
           <ScrollAnimate index={0}>
-            <div className="bg-gradient-to-r from-primary to-primary-glow rounded-3xl overflow-hidden shadow-glow h-fit">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="relative h-full w-full">
-                  <MotionImage
-                    src={ceo.image}
-                    alt={ceo.name}
-                    className="w-full h-full object-cover rounded-l-3xl"
-                  />
-                </div>
-                <div className="  md:py-12 px-2 md:text-left md:px-2 text-white">
-                  <h3 className="text-3xl font-bold mb-2 ">{ceo.name}</h3>
-                  <p className="text-2xl mb-6 text-white/90">{ceo.role}</p>
-                  <p className="text-lg mb-8 text-white/80 leading-relaxed">{ceo.bio}</p>
-                  <div className="flex flex-col md:flex-row gap-4 p-8 justify-center md:justify-start">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="bg-white/10 border-white/30 text-white hover:bg-white/20 flex items-center justify-center"
-                    >
-                      <Linkedin className="w-5 h-5 mr-2" /> LinkedIn
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="bg-white/10 border-white/30 text-white hover:bg-white/20 flex items-center justify-center"
-                    >
-                      <Mail className="w-5 h-5 mr-2" /> Email
-                    </Button>
-                  </div>
+            <div className="relative bg-white rounded-[16px] shadow-lg p-6 md:p-10">
+              {/* CEO Image floated left */}
+              <div className="float-left w-full md:w-1/3 mr-6 mb-4 md:mb-0 rounded-2xl overflow-hidden shadow-md">
+                <MotionImage
+                  src={ceo.image}
+                  alt={ceo.name}
+                  className="w-full h-auto object-cover rounded-2xl"
+                />
+              </div>
+
+              
+              <div className="text-black text-base md:text-lg leading-relaxed">
+                <h3 className="text-3xl md:text-4xl text-sky-600 font-bold mb-2">
+                  {ceo.name}
+                </h3>
+                <p className="text-xl md:text-2xl font-medium mb-4">
+                  {ceo.role}
+                </p>
+                <p className="mb-4">{ceo.bio}</p>
+                <div className="flex flex-col md:flex-row gap-4 mt-4">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-white/10 border-black/30 text-black hover:bg-gray-100 flex items-center justify-center"
+                  >
+                    <Linkedin className="w-5 h-5 mr-2" /> LinkedIn
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-white/10 border-black/30 text-black hover:bg-gray-100 flex items-center justify-center"
+                  >
+                    <Mail className="w-5 h-5 mr-2" /> Email
+                  </Button>
                 </div>
               </div>
+
+              {/* Clear float */}
+              <div className="clear-both" />
             </div>
           </ScrollAnimate>
         </div>
@@ -148,8 +157,12 @@ export default function Team (){
       <section className="md:py-20 py-10 px-4 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
           <ScrollAnimate index={0} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gradient">Our Leadership Team</h2>
-            <p className="text-xl text-muted-foreground">Dedicated professionals committed to your success</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gradient">
+              Our Leadership Team
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Dedicated professionals committed to your success
+            </p>
           </ScrollAnimate>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -157,7 +170,11 @@ export default function Team (){
               <ScrollAnimate key={member.name} index={index}>
                 <div className="bg-card rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-300 flex flex-col">
                   <div className="relative h-80 w-full">
-                    <MotionImage src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                    <MotionImage
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white text-center md:text-left">
                       <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
@@ -165,12 +182,22 @@ export default function Team (){
                     </div>
                   </div>
                   <div className="p-6 flex flex-col gap-4">
-                    <p className="text-muted-foreground mb-4 leading-relaxed">{member.bio}</p>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {member.bio}
+                    </p>
                     <div className="flex gap-3 flex-col sm:flex-row">
-                      <Button variant="outline" size="sm" className="flex-1 flex items-center justify-center">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 flex items-center justify-center"
+                      >
                         <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
                       </Button>
-                      <Button variant="outline" size="sm" className="flex-1 flex items-center justify-center">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 flex items-center justify-center"
+                      >
                         <Mail className="w-4 h-4 mr-2" /> Email
                       </Button>
                     </div>
@@ -182,15 +209,22 @@ export default function Team (){
         </div>
       </section>
 
-      {/* Join Our Team Section */}
+      
       <section className="py-20 px-4">
         <ScrollAnimate index={0} className="flex justify-center">
           <div className="bg-gradient-to-r from-primary to-primary-glow rounded-3xl p-12 text-center shadow-glow max-w-4xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Join Our Team</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Join Our Team
+            </h2>
             <p className="text-xl text-white/90 mb-8">
-              We're always looking for talented individuals who share our passion for connecting people with global opportunities.
+              We're always looking for talented individuals who share our
+              passion for connecting people with global opportunities.
             </p>
-            <Button size="lg" variant="outline" className="bg-white text-primary hover:bg-white/90 text-lg px-8">
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white text-primary hover:bg-white/90 text-lg px-8"
+            >
               View Open Positions
             </Button>
           </div>
@@ -198,6 +232,4 @@ export default function Team (){
       </section>
     </div>
   );
-};
-
-
+}

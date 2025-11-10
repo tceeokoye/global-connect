@@ -24,9 +24,9 @@ const Navigation = () => {
       path: "/services",
       hasDropdown: true,
       subItems: [
-        { name: "Trade", path: "/services/trade" },
+       
         { name: "Industry", path: "/services/industry" },
-        { name: "Investment", path: "/services/investment" },
+        { name: "Investment & Trade", path: "/services/investment" },
         { name: "Travel & Consulate", path: "/services/travel" },
         { name: "Immigration Services", path: "/services/immigration" },
         { name: "Conference & Education Workshop", path: "/services/conferences" },
