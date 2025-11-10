@@ -41,12 +41,12 @@ const MotionImage = motion(Image);
 export default function Team() {
   const ceo = {
     name: "Cajetan “CJ” Onu, JD",
-    role: "Founder & Principal – The Global Connect, LLC",
+    role: "\Principal – The Global Connect, LLC",
     sub:
       "Legal and Compliance Professional | Entrepreneur | Global Development Advocate",
     image: teamCEO,
     bio:
-      "Cajetan “CJ” Onu, JD, is a distinguished legal and compliance professional, entrepreneur, and global development advocate. As Founder and Principal of The Global Connect, LLC, he leads cross-continental initiatives that connect Africa, the diaspora, and global partners through education, trade, investment, and sustainable development. CJ’s multidisciplinary background covers law, regulatory compliance, investigations, real estate, and public administration, enabling him to design ethical, practical, and globally integrated solutions that strengthen governance, enterprise, and institutional collaboration. He holds a Juris Doctor, with advanced studies in litigation, criminal law, and construction management, and a bachelor’s degree in public administration. His professional experience includes serving as a Project Engineer and Coordinator with a major construction firm in Los Angeles, California, and holding key public-service roles with the Medical Board of California and the Health Quality Investigation Unit (HQIU), where he conducted investigations and oversaw healthcare compliance and regulatory integrity. As an entrepreneur and consultant, CJ has developed a global network of partners across the United States, Africa, and the diaspora—connecting businesses, governments, and institutions to strategic opportunities in trade, clean energy, and international collaboration. “Our mission is to empower Africa’s growth by building credible, transparent, and sustainable partnerships that benefit people, communities, and economies worldwide.” — Cajetan “CJ” Onu, JD",
+      "Cajetan “CJ” Onu, JD, is the Principal of The Global Connect, LLC, leading cross-continental initiatives that bridge Africa, the diaspora, and global partners. A legal and compliance professional, he brings multidisciplinary expertise in investigations, governance, regulatory oversight, real estate/construction management, and public administration. CJ has served in key roles ensuring regulatory integrity and healthcare compliance. Today, he connects governments, institutions, and businesses to strategic opportunities in trade, clean energy, and sustainable development.",
     email: "onucajetan@gmail.com",
   };
 
@@ -132,14 +132,14 @@ export default function Team() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="bg-white/10 border-black/30 text-black hover:bg-gray-100 flex items-center justify-center"
+                    className="bg-white/10 border-black/30 text-black hover:bg-gray-100 hover:text-black flex items-center justify-center"
                   >
                     <Linkedin className="w-5 h-5 mr-2" /> LinkedIn
                   </Button>
                   <Button
                     variant="outline"
                     size="lg"
-                    className="bg-white/10 border-black/30 text-black hover:bg-gray-100 flex items-center justify-center"
+                    className="bg-white/10 border-black/30 text-black hover:bg-gray-100  hover:text-black  flex items-center justify-center"
                   >
                     <Mail className="w-5 h-5 mr-2" /> Email
                   </Button>
@@ -152,6 +152,20 @@ export default function Team() {
           </ScrollAnimate>
         </div>
       </section>
+      {/* Mission Section (CJ’s Quote) */}
+      <section className="py-16 px-6 bg-gradient-to-r from-sky-50 to-white">
+        <ScrollAnimate index={1} className="text-center max-w-5xl mx-auto">
+          <blockquote className="italic text-2xl md:text-3xl font-medium text-gray-800 leading-relaxed">
+            “Our mission is to empower Africa’s growth by building credible,
+            transparent, and sustainable partnerships that benefit people,
+            communities, and economies worldwide.”
+          </blockquote>
+          <p className="mt-6 text-lg text-sky-600 font-semibold">
+            — Cajetan “CJ” Onu, JD
+          </p>
+        </ScrollAnimate>
+      </section>
+
 
       {/* Team Members Section */}
       <section className="md:py-20 py-10 px-4 bg-muted/30">
@@ -220,16 +234,18 @@ export default function Team() {
               We're always looking for talented individuals who share our
               passion for connecting people with global opportunities.
             </p>
-            <Button
+            {/* <Button
               size="lg"
               variant="outline"
               className="bg-white text-primary hover:bg-white/90 text-lg px-8"
             >
               View Open Positions
-            </Button>
+            </Button> */}
           </div>
         </ScrollAnimate>
+        
       </section>
+      
     </div>
   );
 }
