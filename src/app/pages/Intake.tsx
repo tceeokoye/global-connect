@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/select";
 import AnimatedHero from "@/components/AnimatedHero";
 
-
 import { useState } from "react";
 import heroIntake from "@/assets/hero-intake.jpg";
 import { Service } from "@/types/global";
+import { toast } from "sonner";
 
 const ButtonLoader = () => (
   <motion.div
@@ -46,6 +46,7 @@ const Modal = ({ onClose }: { onClose: () => void }) => (
 );
 
 export default function Intake() {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -58,8 +59,11 @@ export default function Intake() {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
+    if (e.target.files && e.target.files.length > 0) {
+      setFile(e.target.files[0]);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -81,6 +85,7 @@ export default function Intake() {
         {
           method: "POST",
           body: data,
+          headers: { Accept: "application/json" },
         }
       );
 
@@ -99,23 +104,23 @@ export default function Intake() {
           });
           setFile(null);
         } else {
-          alert("Failed to send: " + json.message);
+          toast.error("Failed to send: " + json.message);
         }
       } else {
         console.warn("Non-JSON response from server:", await res.text());
-        alert("Server returned unexpected response. Check console.");
+        toast.error("Server returned unexpected response.");
       }
     } catch (err: any) {
       console.error(err);
-      alert("An error occurred: " + err.message);
+      toast.error("An error occurred: " + err.message);
     } finally {
       setLoading(false);
     }
   };
 
+
   return (
     <div className="min-h-screen">
-
       <AnimatedHero
         image={heroIntake}
         title="Start Your Global Journey"

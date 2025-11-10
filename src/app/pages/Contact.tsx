@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 
 import { useState } from "react";
 import heroContact from "@/assets/hero-contact.jpg";
+import { toast } from "sonner";
 
 const ButtonLoader = () => (
   <motion.div
@@ -27,7 +28,10 @@ const Modal = ({ onClose }: { onClose: () => void }) => (
       <p className="text-gray-600 mb-6">
         Thank you for reaching out. We'll get back to you as soon as possible.
       </p>
-      <Button onClick={onClose} className="bg-primary text-white px-6 py-3 rounded-lg">
+      <Button
+        onClick={onClose}
+        className="bg-primary text-white px-6 py-3 rounded-lg"
+      >
         Close
       </Button>
     </div>
@@ -45,44 +49,48 @@ export default function ContactUs() {
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
 
-  try {
-    const res = await fetch("https://global-connect-gold.vercel.app/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch(
+        "https://global-connect-gold.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`Server error: ${res.status} ${text}`);
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Server error: ${res.status} ${text}`);
+      }
+
+      const json = await res.json();
+
+      if (json.success) {
+        setShowModal(true);
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        toast.success("Message sent successfully!");
+      } else {
+        toast.error("Failed to send message: " + json.message);
+      }
+    } catch (err: any) {
+      console.error(err);
+      toast.error("An error occurred: " + err.message);
+    } finally {
+      setLoading(false);
     }
-
-    const json = await res.json();
-
-    if (json.success) {
-      setShowModal(true);
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    } else {
-      alert("Failed to send email: " + json.message);
-    }
-  } catch (err: any) {
-    console.error(err);
-    alert("An error occurred: " + err.message);
-  } finally {
-    setLoading(false);
-  }
-};
-
-
+  };
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(`Hello, I’d like to make an inquiry about your services.`);
+    const message = encodeURIComponent(
+      `Hello, I’d like to make an inquiry about your services.`
+    );
     const phone = "+2348162768597";
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
   };
@@ -105,16 +113,12 @@ const handleSubmit = async (e: React.FormEvent) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
               <h2 className="text-4xl font-bold mb-6 text-gradient">
                 Get in Touch
               </h2>
               <p className="text-xl text-muted-foreground mb-4">
-                <strong>Cajetan CJ Onu, JD</strong><br/>
+                <strong>Cajetan CJ Onu, JD</strong>
+                <br />
                 Founder & CEO, The Global Connect LLC
               </p>
               <p className="text-xl text-muted-foreground mb-8">
@@ -130,7 +134,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <div>
                     <h3 className="font-bold mb-1">Visit Office</h3>
                     <p className="text-muted-foreground">
-                     Los Angeles, California.<br/>
+                      Los Angeles, California.<br/>
                       Lagos, Nigeria
                     </p>
                   </div>
@@ -155,14 +159,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Send Email</h3>
-                    <p className="text-muted-foreground">
-                      cconuglobal@gmail.com
-                    </p>
+                    <p className="text-muted-foreground">cconuglobal@gmail.com</p>
                   </div>
                 </div>
               </div>
-            </motion.div>
-
             </motion.div>
 
             <motion.div
@@ -213,8 +213,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   >
                     {loading ? (
                       <>
-                        <ButtonLoader />
-                        Sending...
+                        <ButtonLoader /> Sending...
                       </>
                     ) : (
                       <>
@@ -242,5 +241,4 @@ const handleSubmit = async (e: React.FormEvent) => {
       <Footer />
     </div>
   );
-};
-
+}
