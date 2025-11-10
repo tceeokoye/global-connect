@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -27,7 +27,7 @@ const ServiceCard = ({
       viewport={{ once: true }}
       transition={{ delay, duration: 0.6 }}
     >
-      <CardWrapper to={link || "#"}>
+      <CardWrapper href={link || "#"}>
         <Card className="h-full transition-smooth hover:shadow-elegant hover:-translate-y-2 cursor-pointer group">
           <CardContent className="p-8">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 group-hover:scale-110 transition-smooth shadow-glow">

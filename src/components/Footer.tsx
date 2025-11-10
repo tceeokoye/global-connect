@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo22.png";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <img src={logo} alt="Global Connect Logo" className="h-12 mb-4" />
+            <Image width={48} height={48} src={logo} alt="Global Connect Logo" className="h-12 mb-4" />
             <p className="text-muted-foreground text-sm">
               Connecting Africa, the Diaspora, and the World
             </p>
@@ -19,7 +20,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/"
+                  href="/"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Home
@@ -27,7 +28,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/About"
+                  href="/About"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   About
@@ -35,7 +36,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services"
+                  href="/services"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Services
@@ -43,7 +44,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/partners"
+                  href="/partners"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Partners
@@ -51,7 +52,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/team"
+                  href="/team"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Our Team
@@ -59,7 +60,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Contact
@@ -73,7 +74,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/services/education"
+                  href="/services/education"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Study Abroad
@@ -81,7 +82,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/immigration"
+                  href="/services/immigration"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Immigration
@@ -89,7 +90,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/investment"
+                  href="/services/investment"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Investment
@@ -97,7 +98,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/jobs"
+                  href="/services/jobs"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Job Placement
@@ -105,7 +106,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/travel"
+                  href="/services/travel"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Travel $ Consulate
@@ -113,7 +114,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/conferences"
+                  href="/services/conferences"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Conference and Education Workshop
@@ -121,7 +122,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/trade"
+                  href="/services/trade"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Trade
@@ -129,7 +130,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/industry"
+                  href="/services/industry"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
                   Industry

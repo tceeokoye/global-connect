@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
+import animatePlugin from "tailwindcss-animate";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -8,12 +9,11 @@ export default {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
       padding: {
-        DEFAULT: "0px", // default padding for all screens
+        DEFAULT: "0px",
         sm: "2rem",
         lg: "4rem",
       },
@@ -121,5 +121,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [animatePlugin], // ✅ fix is here
+};
+
+export default config;

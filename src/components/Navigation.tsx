@@ -1,5 +1,9 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,12 +12,13 @@ import logo from "@/assets/logo22.png";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+
+  const pathname = usePathname();
+  const router = useRouter();
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/About" },
+    { name: "About", path: "/about" },
     {
       name: "Services",
       path: "/services",
@@ -24,10 +29,7 @@ const Navigation = () => {
         { name: "Investment", path: "/services/investment" },
         { name: "Travel & Consulate", path: "/services/travel" },
         { name: "Immigration Services", path: "/services/immigration" },
-        {
-          name: "Conference & Education Workshop",
-          path: "/services/conferences",
-        },
+        { name: "Conference & Education Workshop", path: "/services/conferences" },
         { name: "Education & Scholarship", path: "/services/education" },
         { name: "Job & Career Services", path: "/services/jobs" },
       ],
@@ -35,10 +37,10 @@ const Navigation = () => {
     { name: "Partners", path: "/partners" },
     { name: "Team", path: "/team" },
     { name: "Submit Resume", path: "/intake" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <motion.nav
@@ -48,12 +50,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-2 ">
-            <img
-              src={logo}
-              alt="Global Connect Logo"
-              className="h-10 w-10 flex-shrink-0"
-            />
+          <Link href="/" className="flex items-center gap-2">
+            <Image src={logo} alt="Global Connect Logo" width={40} height={40} />
             <span className="font-semibold">Global Connect LLC</span>
           </Link>
 
@@ -68,7 +66,7 @@ const Navigation = () => {
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
                   <button
-                    onClick={() => navigate(item.path)}
+                    onClick={() => router.push(item.path)}
                     className={`flex items-center gap-1 text-base font-medium transition-smooth hover:text-primary ${
                       isActive(item.path) ? "text-primary" : "text-foreground"
                     }`}
@@ -94,11 +92,9 @@ const Navigation = () => {
                         {item.subItems?.map((sub) => (
                           <Link
                             key={sub.path}
-                            to={sub.path}
+                            href={sub.path}
                             className={`block px-4 py-2 text-sm font-medium hover:bg-primary/10 hover:text-primary transition-colors ${
-                              isActive(sub.path)
-                                ? "text-primary"
-                                : "text-foreground"
+                              isActive(sub.path) ? "text-primary" : "text-foreground"
                             }`}
                           >
                             {sub.name}
@@ -111,7 +107,7 @@ const Navigation = () => {
               ) : (
                 <Link
                   key={item.path}
-                  to={item.path}
+                  href={item.path}
                   className={`text-base font-medium transition-smooth hover:text-primary ${
                     isActive(item.path) ? "text-primary" : "text-foreground"
                   }`}
@@ -123,7 +119,7 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/intake">
+            <Link href="/intake">
               <Button variant="default" className="shadow-elegant">
                 Get Started
               </Button>
@@ -148,19 +144,16 @@ const Navigation = () => {
               animate={{ opacity: 1, height: "70vh" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="fixed inset-x-0 top-[64px] z-40 md:hidden bg-background/95 backdrop-blur-md pb-6 shadow-lg rounded-b-3xl overflow-y-auto"
+              className="fixed inset-x-0 top-16 z-40 md:hidden bg-background/95 backdrop-blur-md pb-6 shadow-lg rounded-b-3xl overflow-y-auto"
             >
               <div className="px-4">
                 {navItems.map((item) =>
                   item.hasDropdown ? (
-                    <div
-                      key={item.name}
-                      className="border-b border-border pb-2"
-                    >
+                    <div key={item.name} className="border-b border-border pb-2">
                       <button
                         onClick={() => {
                           setIsServicesOpen(!isServicesOpen);
-                          navigate(item.path);
+                          router.push(item.path);
                         }}
                         className="flex items-center justify-between w-full py-3 text-base font-medium text-foreground hover:text-primary"
                       >
@@ -186,12 +179,10 @@ const Navigation = () => {
                             {item.subItems?.map((sub) => (
                               <Link
                                 key={sub.path}
-                                to={sub.path}
+                                href={sub.path}
                                 onClick={() => setIsOpen(false)}
                                 className={`block py-2 text-sm font-medium hover:text-primary transition-smooth ${
-                                  isActive(sub.path)
-                                    ? "text-primary"
-                                    : "text-foreground"
+                                  isActive(sub.path) ? "text-primary" : "text-foreground"
                                 }`}
                               >
                                 {sub.name}
@@ -204,7 +195,7 @@ const Navigation = () => {
                   ) : (
                     <Link
                       key={item.path}
-                      to={item.path}
+                      href={item.path}
                       onClick={() => setIsOpen(false)}
                       className={`block py-3 text-base font-medium transition-smooth hover:text-primary ${
                         isActive(item.path) ? "text-primary" : "text-foreground"
@@ -215,7 +206,7 @@ const Navigation = () => {
                   )
                 )}
 
-                <Link to="/intake" onClick={() => setIsOpen(false)}>
+                <Link href="/intake" onClick={() => setIsOpen(false)}>
                   <Button
                     variant="default"
                     className="w-full mt-6 text-base font-semibold shadow-elegant"

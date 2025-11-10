@@ -1,15 +1,9 @@
+"use client"
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, ReactNode } from "react";
 
-interface AnimatedHeroProps {
-  image?: string;
-  video?: string;
-  title: string;
-  subtitle?: string;
-  overlay?: ReactNode;
-  height?: string;
-  showConnectingAnimation?: boolean;
-}
+import { AnimatedHeroProps } from "@/types/global";
 
 const AnimatedHero = ({
   image,
@@ -26,13 +20,15 @@ const AnimatedHero = ({
     offset: ["start start", "end start"],
   });
 
-  // Smooth parallax effect for background image
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1.2]);
 
   // Cinematic fade/zoom on load
   const fadeIn = { opacity: 0, scale: 1.2 };
   const fadeOut = { opacity: 1, scale: 1 };
+
+    const backgroundImage =
+    typeof image === "string" ? image : image?.src ?? "";
 
   return (
     <div ref={ref} className={`relative overflow-hidden ${height}`}>
@@ -57,7 +53,7 @@ const AnimatedHero = ({
         ) : (
           <div
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
+              style={{ backgroundImage: `url(${backgroundImage})` }}
           />
         )}
         <div className="absolute inset-0 bg-black/50" />

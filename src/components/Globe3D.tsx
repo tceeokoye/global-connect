@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import earthGlobe from "@/assets/earth-globe.jpg";
-import spaceBackground from "@/assets/space-background.jpg";
+
 import personBusiness from "@/assets/person-business.jpg";
 import personStudent from "@/assets/person-student.jpg";
 import personTrader from "@/assets/person-trader.jpg";
@@ -9,9 +9,11 @@ import personTech from "@/assets/person-tech.jpg";
 import personHealthcare from "@/assets/person-healthcare.jpg";
 import personEducator from "@/assets/person-educator.jpg";
 import personGraduate from "@/assets/person-graduate.jpg";
+import Image from "next/image";
 
 const Globe3D = () => {
   const [connections, setConnections] = useState<Array<{ x: number; y: number; angle: number }>>([]);
+  const MotionImage = motion(Image)
   
   const personImages = [
     personEducator,
@@ -110,7 +112,7 @@ const Globe3D = () => {
             boxShadow: "0 0 80px hsl(205 90% 65% / 0.6), 0 0 120px hsl(280 60% 60% / 0.3), inset 0 0 40px rgba(0, 0, 0, 0.5)",
           }}
         >
-          <img 
+          <MotionImage
             src={earthGlobe} 
             alt="Earth Globe" 
             className="w-full h-full object-cover"
@@ -287,7 +289,7 @@ const Globe3D = () => {
                   repeatDelay: 8,
                 }}
               >
-                <img 
+                <MotionImage
                   src={personImage} 
                   alt={`Person ${i + 1}`}
                   className="w-full h-full object-cover"
