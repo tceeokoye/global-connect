@@ -5,7 +5,7 @@ export const LoadingAnimation = () => {
   const [text, setText] = useState("");
   const [showSubtitle, setShowSubtitle] = useState(false);
 
-  const fullText = "Welcome to Global Connect LLC";
+  const fullText = "Welcome to the Global Connect LLC";
   const subtitle = "Connecting Africa, the Diaspora, and the World";
 
   useEffect(() => {

@@ -66,6 +66,7 @@ export const BackgroundSlider = ({
     onSlideChange?.(slides[currentIndex]);
   }, [currentIndex, onSlideChange]);
 
+
   useEffect(() => {
     const interval = setInterval(() => {
       const randomDir = directions[Math.floor(Math.random() * directions.length)];
@@ -81,6 +82,12 @@ export const BackgroundSlider = ({
 
     return () => clearInterval(interval);
   }, [nextIndex]);
+
+  const [hasMounted, setHasMounted] = useState(false);
+
+useEffect(() => {
+  setHasMounted(true);
+}, []);
 
   
   const getDirectionOffset = (dir: string) => {
@@ -100,8 +107,15 @@ export const BackgroundSlider = ({
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden bg-black">
-   
-      <motion.div
+      {!hasMounted ? (
+      // SSR-safe static version (NO ANIMATION)
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${slides[0].image})`,
+        }}
+      />
+    ) :( <><motion.div
         key={`current-${currentIndex}`}
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -120,7 +134,6 @@ export const BackgroundSlider = ({
         }}
       />
 
-      {/* Next Slide (unwraps in direction) */}
       <motion.div
         key={`next-${nextIndex}`}
         className="absolute inset-0 bg-cover bg-center"
@@ -142,9 +155,9 @@ export const BackgroundSlider = ({
           duration: 1.3,
           ease: "easeInOut",
         }}
-      />
+      /></>)}
 
-      {/* Subtle dark overlay */}
+  
       <div className="absolute inset-0 bg-black/50" />
     </div>
   );

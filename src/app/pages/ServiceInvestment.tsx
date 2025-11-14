@@ -6,7 +6,7 @@ import AnimatedHero from "@/components/AnimatedHero";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Handshake, Globe2, Target } from "lucide-react";
-import heroInvestment from "@/assets/hero-investment.jpg";
+import heroInvestment from "@/assets/investment.jpg";
 import africanBusiness from "@/assets/african-business.jpg";
 import tradeImage from "@/assets/african-trade.jpg";
 import investmentImage from "@/assets/investment-opportunities.jpg";

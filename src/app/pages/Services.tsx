@@ -11,6 +11,7 @@ import {
   DollarSign,
   UserCheck,
   Briefcase,
+  Gavel,
 } from "lucide-react";
 
 import ServiceCard from "@/components/ServiceCard";
@@ -69,6 +70,13 @@ export default function Services() {
         "Providing career guidance, recruitment, and job placement assistance for Africans seeking global employment opportunities, connecting talent with companies worldwide.",
       link: "/services/jobs",
     },
+    {
+  icon:  Gavel, 
+  title: "California Legal Network & Services",
+  description:
+    "Your trusted partner for expert legal document preparation, immigration assistance, and legal relief services—supported by a wide network of affiliate legal professionals.",
+  link: "https://www.calegalnetworks.com",
+},
   ];
 
   return (

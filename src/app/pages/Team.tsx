@@ -59,41 +59,41 @@ export default function Team() {
       linkedin: "https://www.linkedin.com/in/tceetechnologies/",
       email: "truthokoye@gmail.com",
     },
-    {
-      name: "Kofi Asante",
-      role: "Marketing Director",
-      image: teamMarketing,
-      bio: "Building our global brand and connecting with clients worldwide.",
-      linkedin: "#",
-      email: "kofi@globalconnect.com",
-    },
-    {
-      name: "Fatima Ibrahim",
-      role: "Immigration Services Lead",
-      image: teamImmigration,
-      bio:
-        "Expert in visa processing and immigration law with a passion for helping families relocate.",
-      linkedin: "#",
-      email: "fatima@globalconnect.com",
-    },
-    {
-      name: "Chidi Nwosu",
-      role: "Education Counselor",
-      image: teamEducation,
-      bio:
-        "Guiding students to find the perfect academic programs that match their goals.",
-      linkedin: "#",
-      email: "chidi@globalconnect.com",
-    },
-    {
-      name: "Zara Kamara",
-      role: "HR & Recruitment Specialist",
-      image: teamHR,
-      bio:
-        "Connecting talented professionals with career opportunities across the globe.",
-      linkedin: "#",
-      email: "zara@globalconnect.com",
-    },
+    // {
+    //   name: "Kofi Asante",
+    //   role: "Marketing Director",
+    //   image: teamMarketing,
+    //   bio: "Building our global brand and connecting with clients worldwide.",
+    //   linkedin: "#",
+    //   email: "kofi@globalconnect.com",
+    // },
+    // {
+    //   name: "Fatima Ibrahim",
+    //   role: "Immigration Services Lead",
+    //   image: teamImmigration,
+    //   bio:
+    //     "Expert in visa processing and immigration law with a passion for helping families relocate.",
+    //   linkedin: "#",
+    //   email: "fatima@globalconnect.com",
+    // },
+    // {
+    //   name: "Chidi Nwosu",
+    //   role: "Education Counselor",
+    //   image: teamEducation,
+    //   bio:
+    //     "Guiding students to find the perfect academic programs that match their goals.",
+    //   linkedin: "#",
+    //   email: "chidi@globalconnect.com",
+    // },
+    // {
+    //   name: "Zara Kamara",
+    //   role: "HR & Recruitment Specialist",
+    //   image: teamHR,
+    //   bio:
+    //     "Connecting talented professionals with career opportunities across the globe.",
+    //   linkedin: "#",
+    //   email: "zara@globalconnect.com",
+    // },
   ];
 
   return (
