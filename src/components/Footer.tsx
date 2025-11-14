@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo22.png";
 import Image from "next/image";
 
-const Footer = () => {
+export default function Footer(){
   return (
     <footer className="bg-card border-t border-border mt-20">
       <div className="container mx-auto px-4 py-12">
@@ -109,7 +109,7 @@ const Footer = () => {
                   href="/services/travel"
                   className="text-muted-foreground hover:text-primary transition-smooth"
                 >
-                  Travel $ Consulate
+                  Travel & Consulate
                 </Link>
               </li>
               <li>
@@ -173,4 +173,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+
